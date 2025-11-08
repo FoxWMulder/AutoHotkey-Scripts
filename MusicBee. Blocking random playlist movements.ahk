@@ -1,3 +1,5 @@
+;Ver.:202511_2
+
 #Requires AutoHotkey v2
 
 ;Otherwise MouseGetPos is relative to active window
