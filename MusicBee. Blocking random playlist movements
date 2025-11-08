@@ -1,0 +1,34 @@
+#Requires AutoHotkey v2
+
+;Otherwise MouseGetPos is relative to active window
+CoordMode("Mouse", "Screen")
+
+~LButton::
+{
+
+ if WinActive("ahk_exe MusicBee.EXE")
+ {
+
+  MouseGetPos(&PosX, &PosY)
+   
+  if PosX<150
+  {
+
+   if GetKeyState("LButton", "P") ; Wait for Button to be pressed down
+   {
+    BlockInput "MouseMove"
+
+    loop
+    {
+     if !GetKeyState("LButton", "P") ; Wait for Button to be released
+     {
+      BlockInput "MouseMoveOff" 
+     }
+    }
+
+   }  
+
+   } ;if PosX<100
+
+ }
+}
